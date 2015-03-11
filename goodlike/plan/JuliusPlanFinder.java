@@ -45,7 +45,7 @@ public class JuliusPlanFinder implements PlanFinder {
                     .collect(Collectors.toList());
             if (qualities.stream()
                     .map(quality -> quality.isHigh(next.stream()
-                            .map(data -> data.get(quality))
+                            .map(data -> data.get(quality.name()))
                             .map(String::valueOf)
                             .mapToDouble(string -> "null".equals(string) ? Double.valueOf("NaN") : Double.valueOf(string))
                             .reduce(quality.getBaseQuantifier(), quality::calculate))
