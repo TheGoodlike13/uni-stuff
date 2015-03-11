@@ -1,0 +1,17 @@
+Rules
+Z F B  -s file:///E:/ztest/StringService.wsdl concatTimes StringService services.concatTimesWrapper services.concatTimesWrapper file:///E:/ztest/StringService.wsdl concatTimesWeak StringService services.concatTimesWrapper services.concatTimesWrapper
+F D    -s file:///E:/ztest/StringService.wsdl concatTwice StringService services.concatTwiceWrapper services.concatTwiceWrapper
+D A C  -s file:///E:/ztest/StringService.wsdl concatWeak StringService services.concatWrapper services.concatWrapper file:///E:/ztest/StringService.wsdl concat StringService services.concatWrapper services.concatWrapper
+
+Facts
+A B C
+
+Goal
+Z
+
+Method
+BACKWARD
+
+Qualities
+qualityLevel MULTI MIN 0.4
+timeToComplete ADD MAX 30

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database>
+    <services>
+        <service id="SquareService">
+            <URL>http://henrysquareservice.appspot.com/SquareService.wsdl</URL>
+        </service>
+        <service id="CircleService">
+            <URL>http://henrycircleservice.appspot.com/CircleService.wsdl</URL>
+        </service>
+        <service id="CubeService">
+            <URL>http://henrysquareservice.appspot.com/CubeService.wsdl</URL>
+        </service>
+        <service id="CylinderService">
+            <URL>http://henrycircleservice.appspot.com/CylinderService.wsdl</URL>
+        </service>
+        <service id="ConcatService">
+            <URL>http://henrywebservice.appspot.com/ConcatService.wsdl</URL>
+        </service>
+        <service id="GeoIPService">
+            <URL>http://webservicex.com/geoipservice.asmx?WSDL</URL>
+        </service>
+    </services>
+	<methods>
+        <method id="SquareSideToArea">
+            <name>sideToArea</name>
+            <port>SquarePort</port>
+            <request>services.SquareSideToAreaWrapper</request>
+            <response>services.SquareSideToAreaWrapper</response>
+            <service-name>SquareService</service-name>
+        </method>
+        <method id="SquareAreaToSide">
+            <name>areaToSide</name>
+            <port>SquarePort</port>
+            <request>services.SquareAreaToSideWrapper</request>
+            <response>services.SquareAreaToSideWrapper</response>
+            <service-name>SquareService</service-name>
+        </method>
+        <method id="SquareSideToDiagonal">
+            <name>sideToDiagonal</name>
+            <port>SquarePort</port>
+            <request>services.SquareSideToDiagonalWrapper</request>
+            <response>services.SquareSideToDiagonalWrapper</response>
+            <service-name>SquareService</service-name>
+        </method>
+        <method id="SquareDiagonalToSide">
+            <name>diagonalToSide</name>
+            <port>SquarePort</port>
+            <request>services.SquareDiagonalToSideWrapper</request>
+            <response>services.SquareDiagonalToSideWrapper</response>
+            <service-name>SquareService</service-name>
+        </method>
+        <method id="SquareSideToPerimeter">
+            <name>sideToPerimeter</name>
+            <port>SquarePort</port>
+            <request>services.SquareSideToPerimeterWrapper</request>
+            <response>services.SquareSideToPerimeterWrapper</response>
+            <service-name>SquareService</service-name>
+        </method>
+        <method id="SquarePerimeterToSide">
+            <name>perimeterToSide</name>
+            <port>SquarePort</port>
+            <request>services.SquarePerimeterToSideWrapper</request>
+            <response>services.SquarePerimeterToSideWrapper</response>
+            <service-name>SquareService</service-name>
+        </method>
+        <method id="CircleRadiusToArea">
+            <name>radiusToArea</name>
+            <port>CirclePort</port>
+            <request>services.CircleRadiusToAreaWrapper</request>
+            <response>services.CircleRadiusToAreaWrapper</response>
+            <service-name>CircleService</service-name>
+        </method>
+        <method id="CircleAreaToRadius">
+            <name>areaToRadius</name>
+            <port>CirclePort</port>
+            <request>services.CircleAreaToRadiusWrapper</request>
+            <response>services.CircleAreaToRadiusWrapper</response>
+            <service-name>CircleService</service-name>
+        </method>
+        <method id="CircleRadiusToDiameter">
+            <name>radiusToDiameter</name>
+            <port>CirclePort</port>
+            <request>services.CircleRadiusToDiameterWrapper</request>
+            <response>services.CircleRadiusToDiameterWrapper</response>
+            <service-name>CircleService</service-name>
+        </method>
+        <method id="CircleDiameterToRadius">
+            <name>diameterToRadius</name>
+            <port>CirclePort</port>
+            <request>services.CircleDiameterToRadiusWrapper</request>
+            <response>services.CircleDiameterToRadiusWrapper</response>
+            <service-name>CircleService</service-name>
+        </method>
+        <method id="CircleDiameterToPerimeter">
+            <name>diameterToPerimeter</name>
+            <port>CirclePort</port>
+            <request>services.CircleDiameterToPerimeterWrapper</request>
+            <response>services.CircleDiameterToPerimeterWrapper</response>
+            <service-name>CircleService</service-name>
+        </method>
+        <method id="CirclePerimeterToDiameter">
+            <name>perimeterToDiameter</name>
+            <port>CirclePort</port>
+            <request>services.CirclePerimeterToDiameterWrapper</request>
+            <response>services.CirclePerimeterToDiameterWrapper</response>
+            <service-name>CircleService</service-name>
+        </method>
+        <method id="CubeEdgeToVolume">
+            <name>edgeToVolume</name>
+            <port>CubePort</port>
+            <request>services.CubeEdgeToVolumeWrapper</request>
+            <response>services.CubeEdgeToVolumeWrapper</response>
+            <service-name>CubeService</service-name>
+        </method>
+        <method id="CubeVolumeToEdge">
+            <name>volumeToEdge</name>
+            <port>CubePort</port>
+            <request>services.CubeVolumeToEdgeWrapper</request>
+            <response>services.CubeVolumeToEdgeWrapper</response>
+            <service-name>CubeService</service-name>
+        </method>
+        <method id="CylinderBottomRadiusToDiameter">
+            <name>bottomRadiusToDiameter</name>
+            <port>CylinderPort</port>
+            <request>services.CylinderBottomRadiusToDiameterWrapper</request>
+            <response>services.CylinderBottomRadiusToDiameterWrapper</response>
+            <service-name>CylinderService</service-name>
+        </method>
+        <method id="CylinderDiameterToBottomRadius">
+            <name>diameterToBottomRadius</name>
+            <port>CylinderPort</port>
+            <request>services.CylinderDiameterToBottomRadiusWrapper</request>
+            <response>services.CylinderDiameterToBottomRadiusWrapper</response>
+            <service-name>CylinderService</service-name>
+        </method>
+        <method id="CylinderRadiusToBottomArea">
+            <name>radiusToBottomArea</name>
+            <port>CylinderPort</port>
+            <request>services.CylinderRadiusToBottomAreaWrapper</request>
+            <response>services.CylinderRadiusToBottomAreaWrapper</response>
+            <service-name>CylinderService</service-name>
+        </method>
+        <method id="CylinderBottomAreaToRadius">
+            <name>bottomAreaToRadius</name>
+            <port>CylinderPort</port>
+            <request>services.CylinderBottomAreaToRadiusWrapper</request>
+            <response>services.CylinderBottomAreaToRadiusWrapper</response>
+            <service-name>CylinderService</service-name>
+        </method>
+        <method id="CylinderVolume">
+            <name>volume</name>
+            <port>CylinderPort</port>
+            <request>services.CylinderVolumeWrapper</request>
+            <response>services.CylinderVolumeWrapper</response>
+            <service-name>CylinderService</service-name>
+        </method>
+        <method id="CylinderVolumeToBottomArea">
+            <name>volumeToBottomArea</name>
+            <port>CylinderPort</port>
+            <request>services.CylinderVolumeToBottomAreaWrapper</request>
+            <response>services.CylinderVolumeToBottomAreaWrapper</response>
+            <service-name>CylinderService</service-name>
+        </method>
+        <method id="CylinderVolumeToHeight">
+            <name>volumeToHeight</name>
+            <port>CylinderPort</port>
+            <request>services.CylinderVolumeToHeightWrapper</request>
+            <response>services.CylinderVolumeToHeightWrapper</response>
+            <service-name>CylinderService</service-name>
+        </method>
+        <method id="ConcatExecute">
+            <name>execute</name>
+            <port>ConcatPort</port>
+            <request>services.DefaultWSWrapper</request>
+            <response>services.DefaultWSWrapper</response>
+            <service-name>ConcatService</service-name>
+        </method>
+        <method id="GetGeoIP">
+            <name>GetGeoIP</name>
+            <port>GeoIPServiceSoap</port>
+            <request>services.geoIPWrapper</request>
+            <response>services.geoIPWrapper</response>
+            <service-name>GeoIPService</service-name>
+        </method>
+    </methods>
+	<directories>
+        <directory id="">
+            <methodID>SquareSideToArea</methodID>
+            <methodID>SquareAreaToSide</methodID>
+            <methodID>SquareSideToDiagonal</methodID>
+            <methodID>SquareDiagonalToSide</methodID>
+            <methodID>SquareSideToPerimeter</methodID>
+            <methodID>SquarePerimeterToSide</methodID>
+            <methodID>CircleRadiusToArea</methodID>
+            <methodID>CircleAreaToRadius</methodID>
+            <methodID>CircleRadiusToDiameter</methodID>
+            <methodID>CircleDiameterToRadius</methodID>
+            <methodID>CircleDiameterToPerimeter</methodID>
+            <methodID>CirclePerimeterToDiameter</methodID>
+            <methodID>CubeEdgeToVolume</methodID>
+            <methodID>CubeVolumeToEdge</methodID>
+            <methodID>CylinderBottomRadiusToDiameter</methodID>
+            <methodID>CylinderDiameterToBottomRadius</methodID>
+            <methodID>CylinderRadiusToBottomArea</methodID>
+            <methodID>CylinderBottomAreaToRadius</methodID>
+            <methodID>CylinderVolume</methodID>
+            <methodID>CylinderVolumeToBottomArea</methodID>
+            <methodID>CylinderVolumeToHeight</methodID>
+            <methodID>ConcatExecute</methodID>
+            <methodID>GetGeoIP</methodID>
+            <functionID>functions.AreaDifference</functionID>
+            <functionID>functions.ConcatTimes</functionID>
+            <functionID>functions.SumOfVolumes</functionID>
+        </directory>
+    </directories>
+    <qualities>
+        <quality>qualityLevel</quality>
+        <quality>timeToComplete</quality>
+    </qualities>
+</database>

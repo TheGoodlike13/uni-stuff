@@ -1,0 +1,23 @@
+Rules
+Area Square_Area Circle_Area      -f functions.AreaDifference
+Square_Area Square_Side           -s http://henrysquareservice.appspot.com/SquareService.wsdl sideToArea SquarePort services.SquareSideToAreaWrapper services.SquareSideToAreaWrapper
+Square_Side Square_Area           -s http://henrysquareservice.appspot.com/SquareService.wsdl areaToSide SquarePort services.SquareAreaToSideWrapper services.SquareAreaToSideWrapper
+Square_Diagonal Square_Side       -s http://henrysquareservice.appspot.com/SquareService.wsdl sideToDiagonal SquarePort services.SquareSideToDiagonalWrapper services.SquareSideToDiagonalWrapper
+Square_Side Square_Diagonal       -s http://henrysquareservice.appspot.com/SquareService.wsdl diagonalToSide SquarePort services.SquareDiagonalToSideWrapper services.SquareDiagonalToSideWrapper
+Square_Perimeter Square_Side      -s http://henrysquareservice.appspot.com/SquareService.wsdl sideToPerimeter SquarePort services.SquareSideToPerimeterWrapper services.SquareSideToPerimeterWrapper
+Square_Side Square_Perimeter      -s http://henrysquareservice.appspot.com/SquareService.wsdl perimeterToSide SquarePort services.SquarePerimeterToSideWrapper services.SquarePerimeterToSideWrapper
+Circle_Area Circle_Radius         -s http://henrycircleservice.appspot.com/CircleService.wsdl radiusToArea CirclePort services.CircleRadiusToAreaWrapper services.CircleRadiusToAreaWrapper
+Circle_Radius Circle_Area         -s http://henrycircleservice.appspot.com/CircleService.wsdl areaToRadius CirclePort services.CircleAreaToRadiusWrapper services.CircleAreaToRadiusWrapper
+Circle_Diameter Circle_Radius     -s http://henrycircleservice.appspot.com/CircleService.wsdl radiusToDiameter CirclePort services.CircleRadiusToDiameterWrapper services.CircleRadiusToDiameterWrapper
+Circle_Radius Circle_Diameter     -s http://henrycircleservice.appspot.com/CircleService.wsdl diameterToRadius CirclePort services.CircleDiameterToRadiusWrapper services.CircleDiameterToRadiusWrapper
+Circle_Perimeter Circle_Diameter  -s http://henrycircleservice.appspot.com/CircleService.wsdl diameterToPerimeter CirclePort services.CircleDiameterToPerimeterWrapper services.CircleDiameterToPerimeterWrapper
+Circle_Diameter Circle_Perimeter  -s http://henrycircleservice.appspot.com/CircleService.wsdl perimeterToDiameter CirclePort services.CirclePerimeterToDiameterWrapper services.CirclePerimeterToDiameterWrapper
+
+Facts
+Circle_Diameter Square_Side
+
+Goal
+Area
+
+Method
+BACKWARD

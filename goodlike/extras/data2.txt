@@ -1,0 +1,20 @@
+Rules
+Volume Cylinder_Volume Cube_Volume             -f functions.SumOfVolumes
+Cube_Volume Cube_Edge                          -s http://henrysquareservice.appspot.com/CubeService.wsdl edgeToVolume CubePort services.CubeEdgeToVolumeWrapper services.CubeEdgeToVolumeWrapper
+Cube_Edge Cube_Volume                          -s http://henrysquareservice.appspot.com/CubeService.wsdl volumeToEdge CubePort services.CubeVolumeToEdgeWrapper services.CubeVolumeToEdgeWrapper
+Cylinder_Diameter Cylinder_Radius              -s http://henrycircleservice.appspot.com/CylinderService.wsdl bottomRadiusToDiameter CylinderPort services.CylinderBottomRadiusToDiameterWrapper services.CylinderBottomRadiusToDiameterWrapper
+Cylinder_Radius Cylinder_Diameter              -s http://henrycircleservice.appspot.com/CylinderService.wsdl diameterToBottomRadius CylinderPort services.CylinderDiameterToBottomRadiusWrapper services.CylinderDiameterToBottomRadiusWrapper
+Cylinder_Area Cylinder_Radius                  -s http://henrycircleservice.appspot.com/CylinderService.wsdl radiusToBottomArea CylinderPort services.CylinderRadiusToBottomAreaWrapper services.CylinderRadiusToBottomAreaWrapper
+Cylinder_Radius Cylinder_Area                  -s http://henrycircleservice.appspot.com/CylinderService.wsdl bottomAreaToRadius CylinderPort services.CylinderBottomAreaToRadiusWrapper services.CylinderBottomAreaToRadiusWrapper
+Cylinder_Volume Cylinder_Area Cylinder_Height  -s http://henrycircleservice.appspot.com/CylinderService.wsdl volume CylinderPort services.CylinderVolumeWrapper services.CylinderVolumeWrapper
+Cylinder_Area Cylinder_Volume Cylinder_Height  -s http://henrycircleservice.appspot.com/CylinderService.wsdl volumeToBottomArea CylinderPort services.CylinderVolumeToBottomAreaWrapper services.CylinderVolumeToBottomAreaWrapper
+Cylinder_Height Cylinder_Volume Cylinder_Area  -s http://henrycircleservice.appspot.com/CylinderService.wsdl volumeToHeight CylinderPort services.CylinderVolumeToHeightWrapper services.CylinderVolumeToHeightWrapper
+
+Facts
+Cube_Edge Cylinder_Diameter Cylinder_Height
+
+Goal
+Volume
+
+Method
+BACKWARD

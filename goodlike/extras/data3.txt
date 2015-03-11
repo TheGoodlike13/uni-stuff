@@ -1,0 +1,13 @@
+Rules
+Z F B  -f functions.ConcatTimes
+F D C  -s http://henrywebservice.appspot.com/ConcatService.wsdl execute ConcatPort services.DefaultWSWrapper services.DefaultWSWrapper
+D A    -s http://webservicex.com/geoipservice.asmx?WSDL GetGeoIP GeoIPServiceSoap services.geoIPWrapper services.geoIPWrapper
+
+Facts
+A B C
+
+Goal
+Z
+
+Method
+BACKWARD

@@ -1,0 +1,20 @@
+Rules
+Volume Cylinder_Volume Cube_Volume             -f functions.SumOfVolumes
+Cube_Volume Cube_Edge                          -c CubeEdgeToVolume
+Cube_Edge Cube_Volume                          -c CubeVolumeToEdge
+Cylinder_Diameter Cylinder_Radius              -c CylinderBottomRadiusToDiameter
+Cylinder_Radius Cylinder_Diameter              -c CylinderDiameterToBottomRadius
+Cylinder_Area Cylinder_Radius                  -c CylinderRadiusToBottomArea
+Cylinder_Radius Cylinder_Area                  -c CylinderBottomAreaToRadius
+Cylinder_Volume Cylinder_Area Cylinder_Height  -c CylinderVolume
+Cylinder_Area Cylinder_Volume Cylinder_Height  -c CylinderVolumeToBottomArea
+Cylinder_Height Cylinder_Volume Cylinder_Area  -c5 CylinderVolumeToHeight
+
+Facts
+Cube_Edge Cylinder_Diameter Cylinder_Height
+
+Goal
+Volume
+
+Method
+BACKWARD

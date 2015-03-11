@@ -1,0 +1,17 @@
+Rules
+Z F B  -c ConcatTimes ConcatTimesWeak 
+F D    -c ConcatTwice
+D A C  -c ConcatWeak Concat
+
+Facts
+A B C
+
+Goal
+Z
+
+Method
+BACKWARD
+
+Qualities
+qualityLevel MULTI MIN 0.4
+timeToComplete ADD MAX 30

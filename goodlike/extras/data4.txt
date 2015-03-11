@@ -1,0 +1,15 @@
+Rules
+Z F G  -s file:///E:/ztest/StringService.wsdl concatTimesWeak StringService services.concatTimesWrapper
+F D    -s file:///E:/ztest/StringService.wsdl concatTwice StringService services.concatTwiceWrapper
+D A C  -s file:///E:/ztest/StringService.wsdl concatWeak StringService services.concatWrapper
+D E C  -s file:///E:/ztest/StringService.wsdl concat StringService services.concatWrapper
+Z F B  -s file:///E:/ztest/StringService.wsdl concatTimes StringService services.concatTimesWrapper
+
+Facts
+A B C E G
+
+Goal
+Z
+
+Method
+BACKWARD
