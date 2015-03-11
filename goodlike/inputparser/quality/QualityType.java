@@ -9,8 +9,9 @@ public enum QualityType {
 
         @Override
         public double calculate(double quantifier, double quality) {
-            System.out.print(quantifier + " * " + quality + " = ");
-            return quantifier * quality;
+            double result = quantifier * quality;
+            System.out.println(quantifier + " * " + quality + " = " + result);
+            return result;
         }
     },
 
@@ -22,8 +23,9 @@ public enum QualityType {
 
         @Override
         public double calculate(double quantifier, double quality) {
-            System.out.print(quantifier + " + " + quality + " = ");
-            return quantifier + quality;
+            double result = quantifier + quality;
+            System.out.println(quantifier + " + " + quality + " = " + result);
+            return result;
         }
     };
 

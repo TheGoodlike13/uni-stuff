@@ -12,9 +12,12 @@ public final class CollectionUtils {
     //If start >= finish, list is empty
     public static <T> List<T> getPart(List<T> list, T start, T finish) {
         int startIndex = list.indexOf(start);
+        if (startIndex < 0)
+            return Collections.<T>emptyList();
+
         List<T> subList = list.subList(startIndex + 1, list.size());
         int endIndex = subList.indexOf(finish);
-        return startIndex >= endIndex ? Collections.<T>emptyList() : subList.subList(0, endIndex);
+        return endIndex <= 0 ? Collections.<T>emptyList() : subList.subList(0, endIndex);
     }
 
     public static <T> T getFirst(List<T> list, T start, T finish) {

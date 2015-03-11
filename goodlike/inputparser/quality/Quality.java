@@ -20,6 +20,7 @@ public class Quality {
         if (Double.valueOf("NaN").equals(quality))
             return quantifier;
 
+        System.out.print(this);
         return qualityType.calculate(quantifier, quality);
     }
 
@@ -36,7 +37,7 @@ public class Quality {
 
     @Override
     public String toString() {
-        return qualityType + "; " + qualityMode + ";";
+        return qualityType + "; " + qualityMode + "; " + requirement + "; ";
     }
 
 }

@@ -28,6 +28,7 @@ public class DefaultParser implements Parser {
     @Override
     public InputData parse(String file, Config config) {
         List<String> allLines = FileUtils.allLines(file);
+        allLines.add("");
 
         List<RuleData> ruleData = CollectionUtils.getPart(allLines, "Rules", "").stream()
                 .map(stringToRule(config))
@@ -35,7 +36,7 @@ public class DefaultParser implements Parser {
 
         List<String> factStrings = StringUtils.spaceSplit(CollectionUtils.getFirst(allLines, "Facts", ""));
         String goalString = CollectionUtils.getFirst(allLines, "Goal", "");
-        ChainingType method = ChainingType.getMethod(CollectionUtils.getFirst(allLines, "Goal", ""));
+        ChainingType method = ChainingType.getMethod(CollectionUtils.getFirst(allLines, "Method", ""));
 
         List<Quality> qualityList = CollectionUtils.getPart(allLines, "Qualities", "").stream()
                 .map(stringToQuality())

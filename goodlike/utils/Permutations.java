@@ -10,13 +10,13 @@ public class Permutations<T> {
 
     private final List<List<T>> allLists;
 
-    private final Integer[] positions;
+    private final int[] positions;
     private final List<Integer> finalPositions;
 
     public Permutations(List<List<T>> allLists) {
         this.allLists = allLists;
 
-        this.positions = new Integer[allLists.size()];
+        this.positions = new int[allLists.size()];
         this.positions[allLists.size() - 1] = -1;
 
         Iterator<List<T>> lists = this.allLists.iterator();
@@ -27,7 +27,7 @@ public class Permutations<T> {
 
     public boolean hasNext() {
         Iterator<Integer> finalPositions = this.finalPositions.iterator();
-        return !Arrays.stream(positions)
+        return !Arrays.stream(positions).boxed()
                 .map(position -> position.equals(finalPositions.next()))
                 .reduce(true, (previousPositions, currentPosition) -> previousPositions && currentPosition);
     }
@@ -49,12 +49,17 @@ public class Permutations<T> {
 
     private List<T> makeFromIndexes() {
         Iterator<List<T>> lists = this.allLists.iterator();
-        return Arrays.stream(positions)
+        return Arrays.stream(positions).boxed()
                 .map(position -> lists.next().get(position))
                 .collect(Collectors.toList());
     }
 
     public List<Integer> indexes() {
-        return Arrays.asList(positions);
+        return Arrays.stream(positions).boxed().collect(Collectors.toList());
+    }
+
+    @Override
+    public String toString() {
+        return makeFromIndexes().toString();
     }
 }

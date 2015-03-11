@@ -42,9 +42,9 @@ public class WebServiceFunctionMaker implements FunctionMaker {
         WSRequest wsRequest = request(config, requestName);
         WSResponse wsResponse = response(config, responseName);
 
-        Map<String, Double> qualities = qualityNames.stream()
+        Map<String, String> qualities = qualityNames.stream()
                 .collect(Collectors.toMap(java.util.function.Function.<String>identity(),
-                        quality -> Double.valueOf(wsData.get(quality))));
+                        quality -> String.valueOf(wsData.get(quality))));
 
         return SOAPMessager.newInstance(wsData, port, qualities, wsRequest, wsResponse);
     }

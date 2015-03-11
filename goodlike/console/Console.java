@@ -38,8 +38,8 @@ public class Console implements Runnable {
 
             Object goal = planInterpretator.execute(data);
             System.out.print(planInterpretator);
-            System.out.print("Goal achieved!");
-            System.out.print(input.goalString() + ": " + goal);
+            System.out.println("Goal achieved!");
+            System.out.println(input.goalString() + ": " + goal);
 
             System.out.print("Input 'y' to continue...");
             command = readLine();

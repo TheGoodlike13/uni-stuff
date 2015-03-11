@@ -43,6 +43,7 @@ public class JuliusPlanFinder implements PlanFinder {
             List<Map<Object, Object>> next = permutations.next().stream()
                     .map(Function::getMetaData)
                     .collect(Collectors.toList());
+            System.out.println(permutations);
             if (qualities.stream()
                     .map(quality -> quality.isHigh(next.stream()
                             .map(data -> data.get(quality.name()))

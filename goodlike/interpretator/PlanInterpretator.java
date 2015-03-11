@@ -79,35 +79,9 @@ public class PlanInterpretator {
         if (path.isEmpty())
             log("The path is empty.");
         else {
-            log("Path found: " + remapPath(planFinder.toString(), rules) + ";");
+            log("Path found: " + planFinder + ";");
             log(EMPTY_LINE);
         }
-    }
-
-    private String remapPath(String path, List<Rule> rules) {
-        StringBuilder sb = new StringBuilder();
-
-        while (!path.isEmpty()) {
-            int nextIndex = path.indexOf(", ");
-
-            if (nextIndex < 0)
-                nextIndex = path.length();
-
-            System.out.print("Remapping: ");
-            int index = Integer.valueOf(path.substring(1, nextIndex));
-            System.out.print(index + " to ");
-            int ruleNum = rules.get(index - 1).ruleCount();
-            System.out.println(ruleNum);
-            sb.append("R").append(ruleNum).append(", ");
-
-            if (nextIndex == path.length())
-                path = "";
-            else
-                path = path.substring(nextIndex + 2);
-        }
-
-        sb.setLength(sb.length() - 2);
-        return sb.toString();
     }
 
     //Returns the result (final object) of executing the path using given fact values

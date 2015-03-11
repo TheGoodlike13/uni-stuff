@@ -116,7 +116,7 @@ public class SOAPMessager implements Function {
 
     }
 
-    public static SOAPMessager newInstance(Map<String, String> data, String port, Map<String, Double> qualities,
+    public static SOAPMessager newInstance(Map<String, String> data, String port, Map<String, String> qualities,
                                            WSRequest wsRequest, WSResponse wsResponse) {
 
         if (data == null || port == null || wsResponse == null || wsRequest == null)
@@ -137,7 +137,7 @@ public class SOAPMessager implements Function {
 
     private SOAPMessager(String methodName, String nameSpace, String serviceName,
                          String portName, String endPointUrl, String soapAction,
-                         Map<String, Double> qualities, WSRequest wsRequest, WSResponse wsReply) {
+                         Map<String, String> qualities, WSRequest wsRequest, WSResponse wsReply) {
 
         this.methodName = methodName;
         this.nameSpace = nameSpace;
@@ -154,5 +154,10 @@ public class SOAPMessager implements Function {
     @Override
     public Map<Object, Object> getMetaData() {
         return metaData;
+    }
+
+    @Override
+    public String toString() {
+        return methodName;
     }
 }
