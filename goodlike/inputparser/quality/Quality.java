@@ -20,7 +20,9 @@ public class Quality {
         this.coefficient = coefficient;
     }
     public double weight(double quantifier) {
-        return coefficient * quantifier;
+        double result = coefficient * quantifier;
+        System.out.println(qualityName + " weigthing: " + quantifier + " * " + coefficient + " = " + result);
+        return result;
     }
 
     public double getBaseQuantifier() {

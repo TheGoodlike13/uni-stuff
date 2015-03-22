@@ -63,15 +63,29 @@ public class JuliusPlanFinder implements PlanFinder {
                 indexToQuality.put(permutations.indexes(), qualityValues);
             }
         }
-        Optional<List<Integer>> bestIndexes = relevantIndexes.stream()
-                .sorted((list1, list2) -> (int)
-                                (indexToQuality.get(list2).keySet().stream()
-                                        .mapToDouble(quality -> quality.weight(indexToQuality.get(list2).get(quality)))
-                                        .sum()
-                                -
-                                indexToQuality.get(list1).keySet().stream()
-                                        .mapToDouble(quality -> quality.weight(indexToQuality.get(list1).get(quality)))
-                                        .sum()))
+        List<List<Integer>> allThemIndexes = relevantIndexes.stream()
+                .sorted((list1, list2) -> {
+                    Iterator<List<Function>> rules1 = allFunctions.iterator();
+                    Iterator<List<Function>> rules2 = allFunctions.iterator();
+                    System.out.println("Comparing instaces " +
+                            list1.stream().map(i -> rules1.next().get(i)).collect(Collectors.toList())
+                            + " vs " +
+                            list2.stream().map(i -> rules2.next().get(i)).collect(Collectors.toList()));
+                    return (int)
+                            (indexToQuality.get(list2).keySet().stream()
+                                    .mapToDouble(quality -> quality.weight(indexToQuality.get(list2).get(quality)))
+                                    .sum()
+                                    -
+                                    indexToQuality.get(list1).keySet().stream()
+                                            .mapToDouble(quality -> quality.weight(indexToQuality.get(list1).get(quality)))
+                                            .sum());
+                })
+                .collect(Collectors.toList());
+        allThemIndexes.stream().forEach(o -> {
+            Iterator<List<Function>> rules = allFunctions.iterator();
+            System.out.println(o.stream().map(i -> rules.next().get(i)).collect(Collectors.toList()));
+        });
+        Optional<List<Integer>> bestIndexes = allThemIndexes.stream()
                 .findFirst();
         if (bestIndexes.isPresent()) {
             Iterator<Integer> indexes = bestIndexes.get().iterator();

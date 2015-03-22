@@ -13,5 +13,5 @@ Method
 BACKWARD
 
 Qualities
-qualityLevel MULTI MIN 0.4 5
-timeToComplete ADD MAX 30 10
+qualityLevel MULTI MIN 0.2 1000
+timeToComplete ADD MAX 40 0.01
