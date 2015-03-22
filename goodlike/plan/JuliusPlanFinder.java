@@ -39,24 +39,45 @@ public class JuliusPlanFinder implements PlanFinder {
                 .map(RuleData::getFunctions)
                 .collect(Collectors.toList());
         Permutations<Function> permutations = new Permutations<>(allFunctions);
+        Map<List<Integer>, Map<Quality, Double>> indexToQuality = new HashMap<>();
+        List<List<Integer>> relevantIndexes = new ArrayList<>();
         while (permutations.hasNext()) {
             List<Map<Object, Object>> next = permutations.next().stream()
                     .map(Function::getMetaData)
                     .collect(Collectors.toList());
             System.out.println(permutations);
+            Map<Quality, Double> qualityValues = new HashMap<>();
             if (qualities.stream()
-                    .map(quality -> quality.isHigh(next.stream()
-                            .map(data -> data.get(quality.name()))
-                            .map(String::valueOf)
-                            .mapToDouble(string -> "null".equals(string) ? Double.valueOf("NaN") : Double.valueOf(string))
-                            .reduce(quality.getBaseQuantifier(), quality::calculate))
+                    .map(quality ->  {
+                                double qualityValue = next.stream()
+                                        .map(data -> data.get(quality.name()))
+                                        .map(String::valueOf)
+                                        .mapToDouble(string -> "null".equals(string) ? Double.valueOf("NaN") : Double.valueOf(string))
+                                        .reduce(quality.getBaseQuantifier(), quality::calculate);
+                                qualityValues.put(quality, qualityValue);
+                                return quality.isHigh(qualityValue);
+                            }
                     )
                     .reduce(true, (previousQualities, nextQuality) -> previousQualities && nextQuality)) {
-                Iterator<Integer> indexes = permutations.indexes().iterator();
-                relevantRules.stream()
-                        .forEach(rule -> rule.setPosition(indexes.next()));
-                return;
+                relevantIndexes.add(permutations.indexes());
+                indexToQuality.put(permutations.indexes(), qualityValues);
             }
+        }
+        Optional<List<Integer>> bestIndexes = relevantIndexes.stream()
+                .sorted((list1, list2) -> (int)
+                                (indexToQuality.get(list2).keySet().stream()
+                                        .mapToDouble(quality -> quality.weight(indexToQuality.get(list2).get(quality)))
+                                        .sum()
+                                -
+                                indexToQuality.get(list1).keySet().stream()
+                                        .mapToDouble(quality -> quality.weight(indexToQuality.get(list1).get(quality)))
+                                        .sum()))
+                .findFirst();
+        if (bestIndexes.isPresent()) {
+            Iterator<Integer> indexes = bestIndexes.get().iterator();
+            relevantRules.stream()
+                    .forEach(rule -> rule.setPosition(indexes.next()));
+            return;
         }
         pathString = "";
     }

@@ -1,12 +1,16 @@
 package com.goodlike.inputparser.externalclassloader;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Maintains a synchronized map of loaders based on directory to avoid re-loading
+ */
 public class ExternalClassLoaderFactory {
 
-    private static final Map<String, ExternalClassLoader> loaders = new HashMap<>();
+    private static final Map<String, ExternalClassLoader> loaders = Collections.synchronizedMap(new HashMap<>());
 
     public static synchronized ExternalClassLoader getLoader(String directory) {
         ExternalClassLoader loader = loaders.get(directory);

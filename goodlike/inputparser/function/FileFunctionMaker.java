@@ -10,6 +10,9 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Returns a list of functions which use .class files for their implementation
+ */
 public class FileFunctionMaker implements FunctionMaker {
 
     @Override

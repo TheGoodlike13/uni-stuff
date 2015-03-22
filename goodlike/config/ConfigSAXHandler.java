@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * XML parsing configuration for config.xml file
+ */
 public class ConfigSAXHandler extends DefaultHandler {
 
     private Map<String, String> services = new HashMap<>();

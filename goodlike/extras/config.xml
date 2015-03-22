@@ -19,6 +19,9 @@
         <service id="GeoIPService">
             <URL>http://webservicex.com/geoipservice.asmx?WSDL</URL>
         </service>
+		<service id="StringService">
+            <URL>http://78.60.174.109:8080/StringService.wsdl</URL>
+        </service>
     </services>
 	<methods>
         <method id="SquareSideToArea">
@@ -182,6 +185,69 @@
             <response>services.geoIPWrapper</response>
             <service-name>GeoIPService</service-name>
         </method>
+		<method id="ConcatTimes">
+            <name>concatTimes</name>
+            <port>StringService</port>
+            <request>services.concatTimesWrapper</request>
+            <response>services.concatTimesWrapper</response>
+            <service-name>StringService</service-name>
+        </method>
+		<method id="ConcatTimesWeak">
+            <name>concatTimesWeak</name>
+            <port>StringService</port>
+            <request>services.concatTimesWrapper</request>
+            <response>services.concatTimesWrapper</response>
+            <service-name>StringService</service-name>
+        </method>
+        <method id="ConcatTimesBuild">
+            <name>concatTimesBuild</name>
+            <port>StringService</port>
+            <request>services.concatTimesWrapper</request>
+            <response>services.concatTimesWrapper</response>
+            <service-name>StringService</service-name>
+        </method>
+        <method id="ConcatTimesStream">
+            <name>concatTimesStream</name>
+            <port>StringService</port>
+            <request>services.concatTimesWrapper</request>
+            <response>services.concatTimesWrapper</response>
+            <service-name>StringService</service-name>
+        </method>
+		<method id="ConcatTwice">
+            <name>concatTwice</name>
+            <port>StringService</port>
+            <request>services.concatTwiceWrapper</request>
+            <response>services.concatTwiceWrapper</response>
+            <service-name>StringService</service-name>
+        </method>
+        <method id="ConcatTwiceBuild">
+            <name>concatTwiceBuild</name>
+            <port>StringService</port>
+            <request>services.concatTwiceWrapper</request>
+            <response>services.concatTwiceWrapper</response>
+            <service-name>StringService</service-name>
+        </method>
+		<method id="ConcatWeak">
+            <name>concatWeak</name>
+            <port>StringService</port>
+            <request>services.concatWrapper</request>
+            <response>services.concatWrapper</response>
+            <service-name>StringService</service-name>
+        </method>
+        <method id="ConcatBuild">
+            <name>concatBuild</name>
+            <port>StringService</port>
+            <request>services.concatWrapper</request>
+            <response>services.concatWrapper</response>
+            <service-name>StringService</service-name>
+        </method>
+		<method id="Concat">
+            <name>concat</name>
+            <port>StringService</port>
+            <request>services.concatWrapper</request>
+            <response>services.concatWrapper</response>
+            <service-name>StringService</service-name>
+        </method>
     </methods>
 	<directories>
         <directory id="">
@@ -208,6 +274,11 @@
             <methodID>CylinderVolumeToHeight</methodID>
             <methodID>ConcatExecute</methodID>
             <methodID>GetGeoIP</methodID>
+			<methodID>ConcatTimes</methodID>
+			<methodID>ConcatTimesWeak</methodID>
+			<methodID>ConcatTwice</methodID>
+			<methodID>ConcatWeak</methodID>
+			<methodID>Concat</methodID>
             <functionID>functions.AreaDifference</functionID>
             <functionID>functions.ConcatTimes</functionID>
             <functionID>functions.SumOfVolumes</functionID>

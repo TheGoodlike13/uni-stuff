@@ -6,6 +6,9 @@ import com.goodlike.interpretator.RuleData;
 
 import java.util.List;
 
+/**
+ * Holds the data from the input file
+ */
 public class InputData {
 
     private final List<RuleData> ruleData;

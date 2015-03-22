@@ -17,6 +17,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Default implementation for input file parsing
+ */
 public class DefaultParser implements Parser {
 
     private final Iterator<Integer> ruleNumbers;
@@ -53,8 +56,12 @@ public class DefaultParser implements Parser {
             QualityType qualityType = QualityType.getType(qualityDefinitions.get(1));
             QualityMode qualityMode = QualityMode.getMode(qualityDefinitions.get(2));
             double qualityValue = Double.valueOf(qualityDefinitions.get(3));
-
-            return new Quality(name, qualityType, qualityMode, qualityValue);
+            Quality quality = new Quality(name, qualityType, qualityMode, qualityValue);
+            if (qualityDefinitions.size() > 4) {
+                double coefficient = Double.valueOf(qualityDefinitions.get(4));
+                quality.setCoefficient(coefficient);
+            }
+            return quality;
         };
     }
 

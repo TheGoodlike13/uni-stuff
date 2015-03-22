@@ -1,5 +1,10 @@
 package com.goodlike.inputparser.quality;
 
+/**
+ * Quality modes:
+ * MIN - require a minimum quantity of a quality
+ * MAX - require a maximum quantity of a quality
+ */
 public enum QualityMode {
     MIN {
         @Override

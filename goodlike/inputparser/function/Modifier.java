@@ -5,6 +5,9 @@ import com.goodlike.interpretator.Function;
 
 import java.util.List;
 
+/**
+ * Retrieves the appropriate function list creation implementation
+ */
 public enum Modifier {
 
     F(new FileFunctionMaker()),

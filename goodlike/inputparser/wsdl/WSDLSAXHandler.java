@@ -10,6 +10,9 @@ import java.util.Map;
 
 import static com.goodlike.inputparser.wsdl.Constants.*;
 
+/**
+ * WSDL XML parser configuration
+ */
 class WSDLSAXHandler extends DefaultHandler {
 
     private final static char NAMESPACE_CH = ':';

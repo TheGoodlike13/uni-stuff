@@ -1,7 +1,7 @@
 Rules
-Z F B  -c ConcatTimes ConcatTimesWeak 
-F D    -c ConcatTwice
-D A C  -c ConcatWeak Concat
+Z F B  -c ConcatTimes ConcatTimesBuild ConcatTimesStream
+F D    -c ConcatTwice ConcatTwiceBuild
+D A C  -c Concat ConcatBuild
 
 Facts
 A B C
@@ -13,5 +13,5 @@ Method
 BACKWARD
 
 Qualities
-qualityLevel MULTI MIN 0.4
-timeToComplete ADD MAX 30
+qualityLevel MULTI MIN 0.4 5
+timeToComplete ADD MAX 30 10

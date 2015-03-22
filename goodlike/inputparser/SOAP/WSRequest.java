@@ -1,5 +1,8 @@
 package com.goodlike.inputparser.SOAP;
 
+/**
+ * Turns objects into a string the web service method can understand
+ */
 @FunctionalInterface
 public interface WSRequest {
 

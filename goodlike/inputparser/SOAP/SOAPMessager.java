@@ -20,6 +20,9 @@ import java.util.stream.Collectors;
 
 import static com.goodlike.inputparser.wsdl.Constants.*;
 
+/**
+ * Function, which uses web service methods to send requests and retrieve responses
+ */
 public class SOAPMessager implements Function {
 
     private static final String XML_START_1 = "<soapenv:Envelope xmlns:soapenv=\"http://"

@@ -14,6 +14,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Reads the config.xml file and handles all the data within
+ * Usually, the following data is stored:
+ * a) Web service URLs
+ * b) Web service methods and their wrappers
+ * c) Directories where the wrappers are contained
+ * d) Qualities that can be found in web service method definitions
+ */
 public class Config {
 
     private static final String DEFAULT_DIRECTORY = "";

@@ -12,6 +12,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Deals with output and input to system console
+ */
 public class Console implements Runnable {
 
     private final static BufferedReader INPUT = new BufferedReader(new InputStreamReader(System.in));

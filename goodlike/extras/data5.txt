@@ -1,7 +1,7 @@
 Rules
-Z F B  -s file:///E:/ztest/StringService.wsdl concatTimes StringService services.concatTimesWrapper services.concatTimesWrapper file:///E:/ztest/StringService.wsdl concatTimesWeak StringService services.concatTimesWrapper services.concatTimesWrapper
-F D    -s file:///E:/ztest/StringService.wsdl concatTwice StringService services.concatTwiceWrapper services.concatTwiceWrapper
-D A C  -s file:///E:/ztest/StringService.wsdl concatWeak StringService services.concatWrapper services.concatWrapper file:///E:/ztest/StringService.wsdl concat StringService services.concatWrapper services.concatWrapper
+Z F B  -s http://78.60.174.109:8080/StringService.wsdl concatTimes StringService services.concatTimesWrapper services.concatTimesWrapper http://78.60.174.109:8080/StringService.wsdl concatTimesBuild StringService services.concatTimesWrapper services.concatTimesWrapper
+F D    -s http://78.60.174.109:8080/StringService.wsdl concatTwice StringService services.concatTwiceWrapper services.concatTwiceWrapper
+D A C  -s http://78.60.174.109:8080/StringService.wsdl concatBuild StringService services.concatWrapper services.concatWrapper http://78.60.174.109:8080/StringService.wsdl concat StringService services.concatWrapper services.concatWrapper
 
 Facts
 A B C

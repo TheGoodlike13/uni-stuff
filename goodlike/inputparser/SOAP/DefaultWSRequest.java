@@ -1,5 +1,8 @@
 package com.goodlike.inputparser.SOAP;
 
+/**
+ * Default implementation for a web service method request wrapper
+ */
 @SuppressWarnings("unused")
 public class DefaultWSRequest implements WSRequest {
 

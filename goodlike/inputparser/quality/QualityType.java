@@ -1,5 +1,10 @@
 package com.goodlike.inputparser.quality;
 
+/**
+ * Quality modes:
+ * MULTI - multiplies the qualities to get the result
+ * ADD - adds the qualities to get the result
+ */
 public enum QualityType {
     MULTI {
         @Override

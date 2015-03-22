@@ -1,5 +1,8 @@
 package com.goodlike.inputparser;
 
+/**
+ * Initializes the parser
+ */
 public class ParserFactory {
 
     private static final Parser DEFAULT_PARSER = new DefaultParser();

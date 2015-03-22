@@ -6,6 +6,9 @@ import com.goodlike.interpretator.Function;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Returns a list of functions which use config.xml to define web service method used
+ */
 public class PreConfigFunctionMaker implements FunctionMaker {
 
     @Override

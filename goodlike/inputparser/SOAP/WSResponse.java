@@ -1,5 +1,8 @@
 package com.goodlike.inputparser.SOAP;
 
+/**
+ * Turns a string from web service method back into an object
+ */
 @FunctionalInterface
 public interface WSResponse {
 

@@ -11,6 +11,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Parses the WSDL of a web service
+ */
 public class WSDLParser {
 
     private final SAXParser parser;

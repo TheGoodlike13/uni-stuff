@@ -1,5 +1,8 @@
 package com.goodlike.inputparser.wsdl;
 
+/**
+ * Convenience class for WSDL XML parser
+ */
 public class Constants {
 
     public final static String DEF_STR = "definitions";

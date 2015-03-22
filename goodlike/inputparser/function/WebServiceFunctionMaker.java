@@ -17,6 +17,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Returns a list of functions which use web service method for their implementation
+ */
 public class WebServiceFunctionMaker implements FunctionMaker {
 
     @Override

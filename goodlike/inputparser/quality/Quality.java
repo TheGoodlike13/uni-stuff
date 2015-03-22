@@ -1,5 +1,8 @@
 package com.goodlike.inputparser.quality;
 
+/**
+ * Handles a particular quality of a type
+ */
 public class Quality {
 
     private final String qualityName;
@@ -11,6 +14,14 @@ public class Quality {
     private final QualityMode qualityMode;
 
     private final double requirement;
+
+    private double coefficient = 0;
+    public void setCoefficient(double coefficient) {
+        this.coefficient = coefficient;
+    }
+    public double weight(double quantifier) {
+        return coefficient * quantifier;
+    }
 
     public double getBaseQuantifier() {
         return qualityType.baseQuantifier();

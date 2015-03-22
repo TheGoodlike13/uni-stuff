@@ -3,6 +3,9 @@ package com.goodlike.config;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Holds the config.xml data about a web service method
+ */
 class ServiceMethod {
 
     private String name;

@@ -6,6 +6,9 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.file.Paths;
 
+/**
+ * Loads .class files from a specified location
+ */
 public class ExternalClassLoader {
 
     private final static String DEFAULT_DIRECTORY = ".";
