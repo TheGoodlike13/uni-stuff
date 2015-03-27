@@ -37,15 +37,15 @@ public class WebServiceFunctionMaker implements FunctionMaker {
         String requestName = definitions.get(3);
         String responseName = definitions.get(4);
 
-        List<String> qualityNames = config.qualityNames();
+        Map<String, String> qualityNames = config.qualityNames();
 
         WSDLParser parser = WSDLParserFactory.getParser();
-        Map<String, String> wsData = parser.parse(url, operation, port, qualityNames);
+        Map<String, String> wsData = parser.parse(url, operation, port, new ArrayList<>(qualityNames.values()));
 
         WSRequest wsRequest = request(config, requestName);
         WSResponse wsResponse = response(config, responseName);
 
-        Map<String, String> qualities = qualityNames.stream()
+        Map<String, String> qualities = qualityNames.values().stream()
                 .collect(Collectors.toMap(java.util.function.Function.<String>identity(),
                         quality -> String.valueOf(wsData.get(quality))));
 

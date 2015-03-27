@@ -9,7 +9,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +29,7 @@ public class Config {
     private final Map<String, String> services = new HashMap<>();
     private final Map<String, ServiceMethod> methods = new HashMap<>();
     private final Map<String, String> directories = new HashMap<>();
-    private final List<String> qualityNames = new ArrayList<>();
+    private final Map<String, String> qualityNames = new HashMap<>();
 
     public Config() throws ParserConfigurationException, SAXException, IOException {
         this(DEFAULT_DIRECTORY);
@@ -56,8 +55,12 @@ public class Config {
         return methodData;
     }
 
-    public List<String> qualityNames() {
+    public Map<String, String> qualityNames() {
         return qualityNames;
+    }
+
+    public String getQualityName(String name) {
+        return qualityNames.get(name);
     }
 
 }

@@ -42,17 +42,18 @@ public class DefaultParser implements Parser {
         ChainingType method = ChainingType.getMethod(CollectionUtils.getFirst(allLines, "Method", ""));
 
         List<Quality> qualityList = CollectionUtils.getPart(allLines, "Qualities", "").stream()
-                .map(stringToQuality())
+                .map(stringToQuality(config))
                 .collect(Collectors.toList());
 
         return new InputData(ruleData, factStrings, goalString, method, qualityList);
     }
 
-    private java.util.function.Function<String, Quality> stringToQuality() {
+    private java.util.function.Function<String, Quality> stringToQuality(Config config) {
         return line -> {
             List<String> qualityDefinitions = StringUtils.spaceSplit(line);
 
-            String name = qualityDefinitions.get(0);
+            String simpleName = qualityDefinitions.get(0);
+            String name = config.getQualityName(simpleName);
             QualityType qualityType = QualityType.getType(qualityDefinitions.get(1));
             QualityMode qualityMode = QualityMode.getMode(qualityDefinitions.get(2));
             double qualityValue = Double.valueOf(qualityDefinitions.get(3));

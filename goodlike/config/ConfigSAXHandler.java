@@ -4,9 +4,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -17,7 +15,7 @@ public class ConfigSAXHandler extends DefaultHandler {
     private Map<String, String> services = new HashMap<>();
     private Map<String, ServiceMethod> methods = new HashMap<>();
     private Map<String, String> directories = new HashMap<>();
-    private List<String> qualityNames = new ArrayList<>();
+    private Map<String, String> qualityNames = new HashMap<>();
 
     private String id;
     private String xmlRawString;
@@ -29,12 +27,18 @@ public class ConfigSAXHandler extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-        if (qName.equals("service") || qName.equals("directory")) {
-            id = attributes.getValue("id").trim();
-        }
-        else if (qName.equals("method")) {
-            id = attributes.getValue("id");
-            serviceMethod = new ServiceMethod();
+        switch (qName) {
+            case "service":
+            case "directory":
+                id = attributes.getValue("id").trim();
+                break;
+            case "method":
+                id = attributes.getValue("id");
+                serviceMethod = new ServiceMethod();
+                break;
+            case "quality":
+                id = attributes.getValue("id");
+                break;
         }
     }
 
@@ -70,18 +74,18 @@ public class ConfigSAXHandler extends DefaultHandler {
                 directories.put(xmlRawString, id);
                 break;
             case "quality":
-                qualityNames.add(xmlRawString);
+                qualityNames.put(id, xmlRawString);
                 break;
         }
     }
 
     public void getResults(Map<String, String> services, Map<String, ServiceMethod> methods,
-                           Map<String, String> directories, List<String> qualityNames) {
+                           Map<String, String> directories, Map<String, String> qualityNames) {
 
         services.putAll(this.services);
         methods.putAll(this.methods);
         directories.putAll(this.directories);
-        qualityNames.addAll(this.qualityNames);
+        qualityNames.putAll(this.qualityNames);
         System.out.println(this);
     }
 
@@ -93,6 +97,8 @@ public class ConfigSAXHandler extends DefaultHandler {
         for (Map.Entry<String, ServiceMethod> s : methods.entrySet())
             full.append(s).append("\n");
         for (Map.Entry<String, String> s : directories.entrySet())
+            full.append(s).append("\n");
+        for (Map.Entry<String, String> s : qualityNames.entrySet())
             full.append(s).append("\n");
         return full.toString();
     }
