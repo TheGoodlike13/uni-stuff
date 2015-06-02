@@ -1,4 +1,4 @@
-package com.goodlike.interpretator;
+package com.goodlike.interpreter;
 
 import java.util.Collections;
 import java.util.Map;

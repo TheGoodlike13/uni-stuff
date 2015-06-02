@@ -3,10 +3,10 @@ package com.goodlike.plan;
 import com.goodlike.chaining.ChainingType;
 import com.goodlike.inputparser.InputData;
 import com.goodlike.inputparser.quality.Quality;
-import com.goodlike.interpretator.Function;
-import com.goodlike.interpretator.Rule;
-import com.goodlike.interpretator.RuleData;
-import com.goodlike.interpretator.plan.PlanFinder;
+import com.goodlike.interpreter.Function;
+import com.goodlike.interpreter.Rule;
+import com.goodlike.interpreter.RuleData;
+import com.goodlike.interpreter.plan.PlanFinder;
 import com.goodlike.plan.chaining.*;
 import com.goodlike.utils.Permutations;
 
@@ -71,14 +71,15 @@ public class JuliusPlanFinder implements PlanFinder {
                             list1.stream().map(i -> rules1.next().get(i)).collect(Collectors.toList())
                             + " vs " +
                             list2.stream().map(i -> rules2.next().get(i)).collect(Collectors.toList()));
-                    return (int)
-                            (indexToQuality.get(list2).keySet().stream()
-                                    .mapToDouble(quality -> quality.weight(indexToQuality.get(list2).get(quality)))
-                                    .sum()
-                                    -
-                                    indexToQuality.get(list1).keySet().stream()
-                                            .mapToDouble(quality -> quality.weight(indexToQuality.get(list1).get(quality)))
-                                            .sum());
+                    int value1 = (int)indexToQuality.get(list1).keySet().stream()
+                            .mapToDouble(quality -> quality.weight(indexToQuality.get(list1).get(quality)))
+                            .sum();
+                    int value2 = (int)indexToQuality.get(list2).keySet().stream()
+                            .mapToDouble(quality -> quality.weight(indexToQuality.get(list2).get(quality)))
+                            .sum();
+                    System.out.println(value1 + " vs " + value2);
+                    System.out.println();
+                    return value2 - value1;
                 })
                 .collect(Collectors.toList());
         allThemIndexes.stream().forEach(o -> {

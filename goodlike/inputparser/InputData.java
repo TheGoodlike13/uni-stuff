@@ -2,7 +2,7 @@ package com.goodlike.inputparser;
 
 import com.goodlike.chaining.ChainingType;
 import com.goodlike.inputparser.quality.Quality;
-import com.goodlike.interpretator.RuleData;
+import com.goodlike.interpreter.RuleData;
 
 import java.util.List;
 

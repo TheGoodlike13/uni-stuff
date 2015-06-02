@@ -1,4 +1,4 @@
-package com.goodlike.interpretator;
+package com.goodlike.interpreter;
 
 import com.goodlike.utils.StringUtils;
 

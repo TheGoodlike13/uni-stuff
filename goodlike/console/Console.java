@@ -4,8 +4,8 @@ import com.goodlike.config.Config;
 import com.goodlike.inputparser.InputData;
 import com.goodlike.inputparser.Parser;
 import com.goodlike.inputparser.ParserFactory;
-import com.goodlike.interpretator.PlanInterpretator;
-import com.goodlike.interpretator.plan.PlanFinder;
+import com.goodlike.interpreter.PlanInterpreter;
+import com.goodlike.interpreter.plan.PlanFinder;
 import com.goodlike.plan.JuliusPlanFinder;
 
 import java.io.BufferedReader;
@@ -28,7 +28,7 @@ public class Console implements Runnable {
 
     @Override
     public void run() {
-        PlanInterpretator planInterpretator = makePI();
+        PlanInterpreter planInterpreter = makePI();
 
         String command;
         do {
@@ -39,8 +39,8 @@ public class Console implements Runnable {
                     })
                     .toArray();
 
-            Object goal = planInterpretator.execute(data);
-            System.out.print(planInterpretator);
+            Object goal = planInterpreter.execute(data);
+            System.out.print(planInterpreter);
             System.out.println("Goal achieved!");
             System.out.println(input.goalString() + ": " + goal);
 
@@ -49,9 +49,9 @@ public class Console implements Runnable {
         } while ("Y".equals(command.toUpperCase()));
     }
 
-    private PlanInterpretator makePI() {
+    private PlanInterpreter makePI() {
         PlanFinder planFinder = new JuliusPlanFinder(input);
-        return PlanInterpretator.makePI(input.ruleData(), input.factStrings(), input.goalString(), planFinder);
+        return PlanInterpreter.makePI(input.ruleData(), input.factStrings(), input.goalString(), planFinder);
     }
 
     private static String readLine() {

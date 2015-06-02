@@ -1,14 +1,14 @@
-package com.goodlike.interpretator;
+package com.goodlike.interpreter;
 
-import com.goodlike.interpretator.plan.DefaultPlanFinder;
-import com.goodlike.interpretator.plan.PlanFinder;
+import com.goodlike.interpreter.plan.DefaultPlanFinder;
+import com.goodlike.interpreter.plan.PlanFinder;
 import com.goodlike.utils.StringUtils;
 
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PlanInterpretator {
+public class PlanInterpreter {
 
     private final static String END_LINE = "\n";
     private final static String EMPTY_LINE = "";
@@ -23,8 +23,8 @@ public class PlanInterpretator {
     /*
      * Throws NullPointer & IllegalArgument
      */
-    //Static factory method for PlanInterpretator
-    public static PlanInterpretator makePI(List<RuleData> ruleData, List<String> facts, String goal, PlanFinder planFinder) {
+    //Static factory method for PlanInterpreter
+    public static PlanInterpreter makePI(List<RuleData> ruleData, List<String> facts, String goal, PlanFinder planFinder) {
         List<Rule> rules = buildRules(ruleData);
         LinkedHashSet<String> factStrings = buildFactsIntoSet(facts);
         if (facts.size() != factStrings.size())
@@ -38,11 +38,11 @@ public class PlanInterpretator {
 
         planFinder.makePlan(rules);
 
-        return new PlanInterpretator(rules, factStrings, goal, planFinder);
+        return new PlanInterpreter(rules, factStrings, goal, planFinder);
     }
 
     @SuppressWarnings("unused")
-    public static PlanInterpretator makePI(List<RuleData> ruleData, List<String> facts, String goal) {
+    public static PlanInterpreter makePI(List<RuleData> ruleData, List<String> facts, String goal) {
         return makePI(ruleData, facts, goal, new DefaultPlanFinder(ruleData, facts, goal));
     }
 
@@ -56,7 +56,7 @@ public class PlanInterpretator {
         return new LinkedHashSet<>(facts);
     }
 
-    private PlanInterpretator(List<Rule> rules, LinkedHashSet<String> factStrings, String goalString, PlanFinder planFinder) {
+    private PlanInterpreter(List<Rule> rules, LinkedHashSet<String> factStrings, String goalString, PlanFinder planFinder) {
         this.factStrings = factStrings;
         this.goalString = goalString;
         path = planFinder;

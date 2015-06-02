@@ -1,7 +1,7 @@
 package com.goodlike.inputparser.function;
 
 import com.goodlike.config.Config;
-import com.goodlike.interpretator.Function;
+import com.goodlike.interpreter.Function;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public enum Modifier {
 
     private final FunctionMaker functionMaker;
 
-    private Modifier(FunctionMaker functionMaker) {
+    Modifier(FunctionMaker functionMaker) {
         this.functionMaker = functionMaker;
     }
 

@@ -1,7 +1,7 @@
 package com.goodlike.inputparser.function;
 
 import com.goodlike.config.Config;
-import com.goodlike.interpretator.Function;
+import com.goodlike.interpreter.Function;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.goodlike.inputparser.SOAP;
 
-import com.goodlike.interpretator.Function;
+import com.goodlike.interpreter.Function;
 
 import javax.xml.namespace.QName;
 import javax.xml.soap.*;

@@ -1,8 +1,8 @@
-package com.goodlike.interpretator.plan;
+package com.goodlike.interpreter.plan;
 
 import com.goodlike.chaining.ChainingType;
-import com.goodlike.interpretator.Rule;
-import com.goodlike.interpretator.RuleData;
+import com.goodlike.interpreter.Rule;
+import com.goodlike.interpreter.RuleData;
 
 import java.util.Arrays;
 import java.util.Collections;

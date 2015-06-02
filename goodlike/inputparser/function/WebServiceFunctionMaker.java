@@ -8,7 +8,7 @@ import com.goodlike.inputparser.externalclassloader.ExternalClassLoader;
 import com.goodlike.inputparser.externalclassloader.ExternalClassLoaderFactory;
 import com.goodlike.inputparser.wsdl.WSDLParser;
 import com.goodlike.inputparser.wsdl.WSDLParserFactory;
-import com.goodlike.interpretator.Function;
+import com.goodlike.interpreter.Function;
 import com.goodlike.utils.ClassUtils;
 
 import java.lang.reflect.Method;
