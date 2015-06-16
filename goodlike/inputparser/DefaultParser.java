@@ -57,7 +57,7 @@ public class DefaultParser implements Parser {
             QualityType qualityType = QualityType.getType(qualityDefinitions.get(1));
             QualityMode qualityMode = QualityMode.getMode(qualityDefinitions.get(2));
             double qualityValue = Double.valueOf(qualityDefinitions.get(3));
-            Quality quality = new Quality(name, qualityType, qualityMode, qualityValue);
+            Quality quality = new Quality(simpleName, name, qualityType, qualityMode, qualityValue);
             if (qualityDefinitions.size() > 4) {
                 double coefficient = Double.valueOf(qualityDefinitions.get(4));
                 quality.setCoefficient(coefficient);

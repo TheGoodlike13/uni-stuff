@@ -102,15 +102,14 @@ public class JuliusPlanFinder implements PlanFinder {
     private List<Double> qualityLevels(List<Quality> qualities, List<FunctionWrapper> functions) {
         List<Double> qualityLevels = new ArrayList<>();
         for (Quality quality : qualities) {
-            String name = quality.name();
-            System.out.println("Calculating characteristic '" + name + "'");
-            double qualityValue = functions.stream()
-                    .mapToDouble(function -> function.quality(name))
-                    .reduce(quality.getBaseQuantifier(), quality::calculate);
+            System.out.println("Calculating characteristic '" + quality.name() + "'");
+            double qualityValue = quality.getBaseQuantifier();
+            for (FunctionWrapper function : functions) {
+                qualityValue = quality.calculate(qualityValue, function.quality(quality.wsdlName()));
 
-            if (!quality.isHigh(qualityValue))
-                return Collections.emptyList();
-
+                if (!quality.isHigh(qualityValue))
+                    return Collections.emptyList();
+            }
             qualityLevels.add(qualityValue);
         }
         return qualityLevels;

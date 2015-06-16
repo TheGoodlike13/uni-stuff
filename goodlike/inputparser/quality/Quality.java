@@ -5,9 +5,13 @@ package com.goodlike.inputparser.quality;
  */
 public class Quality {
 
+    private final String configName;
     private final String qualityName;
-    public String name() {
+    public String wsdlName() {
         return qualityName;
+    }
+    public String name() {
+        return configName + " (" + qualityName + ")";
     }
 
     private final QualityType qualityType;
@@ -21,7 +25,7 @@ public class Quality {
     }
     public double weight(double quantifier) {
         double result = coefficient * quantifier;
-        System.out.println(qualityName + String.format(" weight: %.2f * %.2f = %.2f", quantifier, coefficient, result));
+        System.out.println(name() + String.format(" weight: %.2f * %.2f = %.2f", quantifier, coefficient, result));
         return result;
     }
 
@@ -41,7 +45,8 @@ public class Quality {
         return qualityMode.compare(quantifier, requirement);
     }
 
-    public Quality(String qualityName, QualityType qualityType, QualityMode qualityMode, double requirement) {
+    public Quality(String configName, String qualityName, QualityType qualityType, QualityMode qualityMode, double requirement) {
+        this.configName = configName;
         this.qualityName = qualityName;
         this.qualityType = qualityType;
         this.qualityMode = qualityMode;
