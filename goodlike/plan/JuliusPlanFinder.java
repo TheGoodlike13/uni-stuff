@@ -8,7 +8,7 @@ import com.goodlike.interpreter.Rule;
 import com.goodlike.interpreter.RuleData;
 import com.goodlike.interpreter.plan.PlanFinder;
 import com.goodlike.plan.chaining.*;
-import com.goodlike.utils.Permutations;
+import com.goodlike.utils.permutations.Permutations;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -34,67 +34,86 @@ public class JuliusPlanFinder implements PlanFinder {
     private void establishQuality(InputData input) {
         List<RuleData> relevantRules = filterByPlan(input.ruleData());
         List<Quality> qualities = input.qualities();
-        List<List<Function>> allFunctions =
-                relevantRules.stream()
-                .map(RuleData::getFunctions)
-                .collect(Collectors.toList());
-        Permutations<Function> permutations = new Permutations<>(allFunctions);
-        Map<List<Integer>, Map<Quality, Double>> indexToQuality = new HashMap<>();
-        List<List<Integer>> relevantIndexes = new ArrayList<>();
-        while (permutations.hasNext()) {
-            List<Map<Object, Object>> next = permutations.next().stream()
-                    .map(Function::getMetaData)
-                    .collect(Collectors.toList());
-            System.out.println(permutations);
-            Map<Quality, Double> qualityValues = new HashMap<>();
-            if (qualities.stream()
-                    .map(quality ->  {
-                                double qualityValue = next.stream()
-                                        .map(data -> data.get(quality.name()))
-                                        .map(String::valueOf)
-                                        .mapToDouble(string -> "null".equals(string) ? Double.valueOf("NaN") : Double.valueOf(string))
-                                        .reduce(quality.getBaseQuantifier(), quality::calculate);
-                                qualityValues.put(quality, qualityValue);
-                                return quality.isHigh(qualityValue);
-                            }
-                    )
-                    .reduce(true, (previousQualities, nextQuality) -> previousQualities && nextQuality)) {
-                relevantIndexes.add(permutations.indexes());
-                indexToQuality.put(permutations.indexes(), qualityValues);
-            }
+
+        List<List<FunctionWrapper>> allFunctions = new ArrayList<>();
+        for (RuleData rule : relevantRules) {
+            List<FunctionWrapper> functions = new ArrayList<>();
+            int i = 0;
+            for (Function function : rule.getFunctions())
+                functions.add(new FunctionWrapper(i++, function));
+
+            allFunctions.add(functions);
         }
-        List<List<Integer>> allThemIndexes = relevantIndexes.stream()
-                .sorted((list1, list2) -> {
-                    Iterator<List<Function>> rules1 = allFunctions.iterator();
-                    Iterator<List<Function>> rules2 = allFunctions.iterator();
-                    System.out.println("Comparing instaces " +
-                            list1.stream().map(i -> rules1.next().get(i)).collect(Collectors.toList())
-                            + " vs " +
-                            list2.stream().map(i -> rules2.next().get(i)).collect(Collectors.toList()));
-                    int value1 = (int)indexToQuality.get(list1).keySet().stream()
-                            .mapToDouble(quality -> quality.weight(indexToQuality.get(list1).get(quality)))
-                            .sum();
-                    int value2 = (int)indexToQuality.get(list2).keySet().stream()
-                            .mapToDouble(quality -> quality.weight(indexToQuality.get(list2).get(quality)))
-                            .sum();
-                    System.out.println(value1 + " vs " + value2);
-                    System.out.println();
-                    return value2 - value1;
-                })
-                .collect(Collectors.toList());
-        allThemIndexes.stream().forEach(o -> {
-            Iterator<List<Function>> rules = allFunctions.iterator();
-            System.out.println(o.stream().map(i -> rules.next().get(i)).collect(Collectors.toList()));
-        });
-        Optional<List<Integer>> bestIndexes = allThemIndexes.stream()
-                .findFirst();
-        if (bestIndexes.isPresent()) {
-            Iterator<Integer> indexes = bestIndexes.get().iterator();
-            relevantRules.stream()
-                    .forEach(rule -> rule.setPosition(indexes.next()));
+
+        List<FunctionWrapper> best = Collections.emptyList();
+        double highestQuality = 0;
+
+        Permutations<FunctionWrapper> permutations = new Permutations<>(allFunctions);
+        for (List<FunctionWrapper> permutation : permutations) {
+            System.out.println("Calculating quality for chain: " + permutation);
+            List<Double> qualityLevels = qualityLevels(qualities, permutation);
+            if (qualityLevels.isEmpty()) {
+                System.out.println("Chain dropped due to low quality.");
+                continue;
+            }
+
+            if (best.isEmpty()) {
+                System.out.println("First sufficiently good chain found.");
+                best = permutation;
+                highestQuality = weightedQuality(qualities, qualityLevels);
+                System.out.println(String.format("Weighted value: %.2f", highestQuality));
+                continue;
+            }
+
+            System.out.println("New sufficiently good chain found.");
+            double newQuality = weightedQuality(qualities, qualityLevels);
+            System.out.println(String.format("Weighted value: %.2f", newQuality));
+            if (newQuality <= highestQuality) {
+                System.out.println(String.format("%.2f >= %.2f, chain is not better than current best, ignoring...", highestQuality, newQuality));
+                continue;
+            }
+
+            System.out.println(String.format("%.2f < %.2f, chain is better than current best, updating...", highestQuality, newQuality));
+            best = permutation;
+            highestQuality = newQuality;
+        }
+
+        if (best.isEmpty()) {
+            System.out.println("No sufficiently good chain found.");
+            pathString = "";
             return;
         }
-        pathString = "";
+
+        List<Integer> indexes = best.stream()
+                .map(FunctionWrapper::index)
+                .collect(Collectors.toList());
+        for (int i = 0; i < indexes.size(); i++)
+            relevantRules.get(i).setPosition(indexes.get(i));
+    }
+
+    private double weightedQuality(List<Quality> qualities, List<Double> qualityLevels) {
+        double weight = 0;
+        for (int i = 0; i < qualities.size(); i++)
+            weight += qualities.get(i).weight(qualityLevels.get(i));
+
+        return weight;
+    }
+
+    private List<Double> qualityLevels(List<Quality> qualities, List<FunctionWrapper> functions) {
+        List<Double> qualityLevels = new ArrayList<>();
+        for (Quality quality : qualities) {
+            String name = quality.name();
+            System.out.println("Calculating characteristic '" + name + "'");
+            double qualityValue = functions.stream()
+                    .mapToDouble(function -> function.quality(name))
+                    .reduce(quality.getBaseQuantifier(), quality::calculate);
+
+            if (!quality.isHigh(qualityValue))
+                return Collections.emptyList();
+
+            qualityLevels.add(qualityValue);
+        }
+        return qualityLevels;
     }
 
     private String getPathString(List<RuleData> rules, List<String> factStrings, String goalString, ChainingType method) {

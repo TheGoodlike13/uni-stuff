@@ -21,7 +21,7 @@ public class Quality {
     }
     public double weight(double quantifier) {
         double result = coefficient * quantifier;
-        System.out.println(qualityName + " weigthing: " + quantifier + " * " + coefficient + " = " + result);
+        System.out.println(qualityName + String.format(" weight: %.2f * %.2f = %.2f", quantifier, coefficient, result));
         return result;
     }
 
@@ -50,7 +50,7 @@ public class Quality {
 
     @Override
     public String toString() {
-        return qualityType + "; " + qualityMode + "; " + requirement + "; ";
+        return qualityType + "; " + qualityMode + String.format("; %.2f; ", requirement);
     }
 
 }

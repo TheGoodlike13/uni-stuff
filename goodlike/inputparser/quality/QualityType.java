@@ -15,7 +15,7 @@ public enum QualityType {
         @Override
         public double calculate(double quantifier, double quality) {
             double result = quantifier * quality;
-            System.out.println(quantifier + " * " + quality + " = " + result);
+            System.out.println(String.format("%.2f * %.2f = %.2f", quantifier, quality, result));
             return result;
         }
     },
@@ -29,7 +29,7 @@ public enum QualityType {
         @Override
         public double calculate(double quantifier, double quality) {
             double result = quantifier + quality;
-            System.out.println(quantifier + " + " + quality + " = " + result);
+            System.out.println(String.format("%.2f + %.2f = %.2f", quantifier, quality, result));
             return result;
         }
     };
