@@ -54,11 +54,13 @@ public class JuliusPlanFinder implements PlanFinder {
             List<Double> qualityLevels = qualityLevels(qualities, permutation);
             if (qualityLevels.isEmpty()) {
                 System.out.println("Chain dropped due to low quality.");
+                System.out.println();
                 continue;
             }
 
             if (best.isEmpty()) {
                 System.out.println("First sufficiently good chain found.");
+                System.out.println();
                 best = permutation;
                 highestQuality = weightedQuality(qualities, qualityLevels);
                 System.out.println(String.format("Weighted value: %.2f", highestQuality));
@@ -66,23 +68,28 @@ public class JuliusPlanFinder implements PlanFinder {
             }
 
             System.out.println("New sufficiently good chain found.");
+            System.out.println();
             double newQuality = weightedQuality(qualities, qualityLevels);
             System.out.println(String.format("Weighted value: %.2f", newQuality));
+            System.out.println();
             if (newQuality <= highestQuality) {
                 System.out.println(String.format("%.2f >= %.2f, chain is not better than current best, ignoring...", highestQuality, newQuality));
+                System.out.println();
                 continue;
             }
 
             System.out.println(String.format("%.2f < %.2f, chain is better than current best, updating...", highestQuality, newQuality));
-            best = permutation;
+            System.out.println();            best = permutation;
             highestQuality = newQuality;
         }
 
         if (best.isEmpty()) {
             System.out.println("No sufficiently good chain found.");
+            System.out.println();
             pathString = "";
             return;
         }
+        System.out.println();
 
         List<Integer> indexes = best.stream()
                 .map(FunctionWrapper::index)
@@ -102,7 +109,9 @@ public class JuliusPlanFinder implements PlanFinder {
     private List<Double> qualityLevels(List<Quality> qualities, List<FunctionWrapper> functions) {
         List<Double> qualityLevels = new ArrayList<>();
         for (Quality quality : qualities) {
+            System.out.println();
             System.out.println("Calculating characteristic '" + quality.name() + "'");
+            System.out.println();
             double qualityValue = quality.getBaseQuantifier();
             for (FunctionWrapper function : functions) {
                 qualityValue = quality.calculate(qualityValue, function.quality(quality.wsdlName()));

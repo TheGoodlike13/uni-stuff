@@ -25,8 +25,14 @@ public class Quality {
     }
     public double weight(double quantifier) {
         double result = coefficient * quantifier;
-        System.out.println(name() + String.format(" weight: %.2f * %.2f = %.2f", quantifier, coefficient, result));
-        return result;
+        System.out.print(name() + String.format(" weight: %.2f * %.2f = %.2f", quantifier, coefficient, result));
+        if (qualityMode == QualityMode.MIN) {
+            System.out.println("; adding to total weight");
+            return result;
+        }
+
+        System.out.println("; removing from total weight");
+        return -result;
     }
 
     public double getBaseQuantifier() {
