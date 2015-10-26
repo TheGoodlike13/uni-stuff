@@ -1,4 +1,4 @@
-package com.goodlike.inputparser.SOAP;
+package eu.goodlike.inputparser.SOAP;
 
 /**
  * Default implementation for a web service method request wrapper

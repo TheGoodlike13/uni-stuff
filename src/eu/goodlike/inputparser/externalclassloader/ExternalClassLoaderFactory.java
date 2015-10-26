@@ -1,4 +1,4 @@
-package com.goodlike.inputparser.externalclassloader;
+package eu.goodlike.inputparser.externalclassloader;
 
 import java.io.IOException;
 import java.util.Collections;

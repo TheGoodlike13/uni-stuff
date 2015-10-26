@@ -1,5 +1,5 @@
 
-package com.goodlike.plan.chaining;
+package eu.goodlike.plan.chaining;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

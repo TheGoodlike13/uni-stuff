@@ -1,4 +1,4 @@
-package com.goodlike.inputparser.wsdl;
+package eu.goodlike.inputparser.wsdl;
 
 /**
  * Convenience class for WSDL XML parser

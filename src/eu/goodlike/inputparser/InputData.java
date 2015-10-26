@@ -1,8 +1,8 @@
-package com.goodlike.inputparser;
+package eu.goodlike.inputparser;
 
-import com.goodlike.chaining.ChainingType;
-import com.goodlike.inputparser.quality.Quality;
-import com.goodlike.interpreter.RuleData;
+import eu.goodlike.chaining.ChainingType;
+import eu.goodlike.inputparser.quality.Quality;
+import eu.goodlike.interpreter.RuleData;
 
 import java.util.List;
 

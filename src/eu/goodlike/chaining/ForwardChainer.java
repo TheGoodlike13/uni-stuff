@@ -1,6 +1,6 @@
-package com.goodlike.chaining;
+package eu.goodlike.chaining;
 
-import com.goodlike.utils.StringUtils;
+import eu.goodlike.utils.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;

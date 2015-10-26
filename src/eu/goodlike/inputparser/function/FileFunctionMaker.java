@@ -1,10 +1,10 @@
-package com.goodlike.inputparser.function;
+package eu.goodlike.inputparser.function;
 
-import com.goodlike.config.Config;
-import com.goodlike.inputparser.externalclassloader.ExternalClassLoader;
-import com.goodlike.inputparser.externalclassloader.ExternalClassLoaderFactory;
-import com.goodlike.interpreter.Function;
-import com.goodlike.utils.ClassUtils;
+import eu.goodlike.config.Config;
+import eu.goodlike.inputparser.externalclassloader.ExternalClassLoader;
+import eu.goodlike.inputparser.externalclassloader.ExternalClassLoaderFactory;
+import eu.goodlike.interpreter.Function;
+import eu.goodlike.utils.ClassUtils;
 
 import java.lang.reflect.Method;
 import java.util.List;

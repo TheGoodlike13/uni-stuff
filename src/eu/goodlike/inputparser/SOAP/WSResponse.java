@@ -1,4 +1,4 @@
-package com.goodlike.inputparser.SOAP;
+package eu.goodlike.inputparser.SOAP;
 
 /**
  * Turns a string from web service method back into an object

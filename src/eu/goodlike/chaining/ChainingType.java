@@ -1,4 +1,4 @@
-package com.goodlike.chaining;
+package eu.goodlike.chaining;
 
 import java.util.List;
 

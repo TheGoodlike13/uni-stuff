@@ -1,4 +1,4 @@
-package com.goodlike.inputparser.wsdl;
+package eu.goodlike.inputparser.wsdl;
 
 /**
  * Initializes the WSDL parser

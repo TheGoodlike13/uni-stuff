@@ -1,6 +1,6 @@
-package com.goodlike.plan;
+package eu.goodlike.plan;
 
-import com.goodlike.interpreter.Function;
+import eu.goodlike.interpreter.Function;
 
 import java.util.Map;
 import java.util.stream.Collectors;

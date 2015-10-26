@@ -1,8 +1,8 @@
-package com.goodlike.interpreter;
+package eu.goodlike.interpreter;
 
-import com.goodlike.interpreter.plan.DefaultPlanFinder;
-import com.goodlike.interpreter.plan.PlanFinder;
-import com.goodlike.utils.StringUtils;
+import eu.goodlike.interpreter.plan.DefaultPlanFinder;
+import eu.goodlike.interpreter.plan.PlanFinder;
+import eu.goodlike.utils.StringUtils;
 
 import java.util.LinkedHashSet;
 import java.util.List;

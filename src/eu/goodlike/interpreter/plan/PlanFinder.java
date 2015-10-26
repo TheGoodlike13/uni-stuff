@@ -1,7 +1,7 @@
-package com.goodlike.interpreter.plan;
+package eu.goodlike.interpreter.plan;
 
-import com.goodlike.chaining.ChainingType;
-import com.goodlike.interpreter.Rule;
+import eu.goodlike.chaining.ChainingType;
+import eu.goodlike.interpreter.Rule;
 
 import java.util.Iterator;
 import java.util.List;

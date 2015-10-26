@@ -1,4 +1,4 @@
-package com.goodlike.utils.permutations;
+package eu.goodlike.utils.permutations;
 
 import java.util.ArrayList;
 import java.util.Collections;

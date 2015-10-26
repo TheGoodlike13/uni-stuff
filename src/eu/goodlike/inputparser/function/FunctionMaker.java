@@ -1,7 +1,7 @@
-package com.goodlike.inputparser.function;
+package eu.goodlike.inputparser.function;
 
-import com.goodlike.config.Config;
-import com.goodlike.interpreter.Function;
+import eu.goodlike.config.Config;
+import eu.goodlike.interpreter.Function;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.goodlike.utils;
+package eu.goodlike.utils;
 
 import java.lang.reflect.Method;
 

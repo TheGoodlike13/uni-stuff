@@ -1,4 +1,4 @@
-package com.goodlike.utils;
+package eu.goodlike.utils;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,4 +1,4 @@
-package com.goodlike.config;
+package eu.goodlike.config;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;

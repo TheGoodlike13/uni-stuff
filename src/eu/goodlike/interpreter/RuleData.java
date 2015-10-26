@@ -1,4 +1,4 @@
-package com.goodlike.interpreter;
+package eu.goodlike.interpreter;
 
 import java.util.Arrays;
 import java.util.List;

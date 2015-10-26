@@ -1,12 +1,12 @@
-package com.goodlike.console;
+package eu.goodlike.console;
 
-import com.goodlike.config.Config;
-import com.goodlike.inputparser.InputData;
-import com.goodlike.inputparser.Parser;
-import com.goodlike.inputparser.ParserFactory;
-import com.goodlike.interpreter.PlanInterpreter;
-import com.goodlike.interpreter.plan.PlanFinder;
-import com.goodlike.plan.JuliusPlanFinder;
+import eu.goodlike.config.Config;
+import eu.goodlike.inputparser.InputData;
+import eu.goodlike.inputparser.Parser;
+import eu.goodlike.inputparser.ParserFactory;
+import eu.goodlike.interpreter.PlanInterpreter;
+import eu.goodlike.interpreter.plan.PlanFinder;
+import eu.goodlike.plan.JuliusPlanFinder;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,7 +1,7 @@
-package com.goodlike;
+package eu.goodlike;
 
-import com.goodlike.config.Config;
-import com.goodlike.console.Console;
+import eu.goodlike.config.Config;
+import eu.goodlike.console.Console;
 
 import java.util.Arrays;
 import java.util.List;

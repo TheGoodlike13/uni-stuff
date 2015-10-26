@@ -1,4 +1,4 @@
-package com.goodlike.config;
+package eu.goodlike.config;
 
 import java.util.Arrays;
 import java.util.List;

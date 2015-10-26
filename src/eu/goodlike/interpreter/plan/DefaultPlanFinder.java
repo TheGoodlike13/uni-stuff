@@ -1,8 +1,8 @@
-package com.goodlike.interpreter.plan;
+package eu.goodlike.interpreter.plan;
 
-import com.goodlike.chaining.ChainingType;
-import com.goodlike.interpreter.Rule;
-import com.goodlike.interpreter.RuleData;
+import eu.goodlike.chaining.ChainingType;
+import eu.goodlike.interpreter.Rule;
+import eu.goodlike.interpreter.RuleData;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.goodlike.chaining.ChainingType.BACKWARD;
+import static eu.goodlike.chaining.ChainingType.BACKWARD;
 
 public class DefaultPlanFinder implements PlanFinder {
 

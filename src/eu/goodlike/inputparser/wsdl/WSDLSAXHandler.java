@@ -1,4 +1,4 @@
-package com.goodlike.inputparser.wsdl;
+package eu.goodlike.inputparser.wsdl;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.goodlike.inputparser.wsdl.Constants.*;
+import static eu.goodlike.inputparser.wsdl.Constants.*;
 
 /**
  * WSDL XML parser configuration

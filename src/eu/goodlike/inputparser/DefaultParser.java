@@ -1,16 +1,16 @@
-package com.goodlike.inputparser;
+package eu.goodlike.inputparser;
 
-import com.goodlike.chaining.ChainingType;
-import com.goodlike.config.Config;
-import com.goodlike.inputparser.function.Modifier;
-import com.goodlike.inputparser.quality.Quality;
-import com.goodlike.inputparser.quality.QualityMode;
-import com.goodlike.inputparser.quality.QualityType;
-import com.goodlike.interpreter.Function;
-import com.goodlike.interpreter.RuleData;
-import com.goodlike.utils.CollectionUtils;
-import com.goodlike.utils.FileUtils;
-import com.goodlike.utils.StringUtils;
+import eu.goodlike.chaining.ChainingType;
+import eu.goodlike.config.Config;
+import eu.goodlike.inputparser.function.Modifier;
+import eu.goodlike.inputparser.quality.Quality;
+import eu.goodlike.inputparser.quality.QualityMode;
+import eu.goodlike.inputparser.quality.QualityType;
+import eu.goodlike.interpreter.Function;
+import eu.goodlike.interpreter.RuleData;
+import eu.goodlike.utils.CollectionUtils;
+import eu.goodlike.utils.FileUtils;
+import eu.goodlike.utils.StringUtils;
 
 import java.util.Iterator;
 import java.util.List;

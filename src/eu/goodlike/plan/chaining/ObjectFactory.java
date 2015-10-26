@@ -1,5 +1,5 @@
 
-package com.goodlike.plan.chaining;
+package eu.goodlike.plan.chaining;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -10,7 +10,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the com.goodlike.plan.chaining package.
+ * generated in the eu.goodlike.plan.chaining package.
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -28,7 +28,7 @@ public class ObjectFactory {
     private final static QName _ClientQuery_QNAME = new QName("http://chaining.mif.vu.lt/", "clientQuery");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.goodlike.plan.chaining
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: eu.goodlike.plan.chaining
      * 
      */
     public ObjectFactory() {

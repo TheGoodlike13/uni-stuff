@@ -1,5 +1,5 @@
 
-package com.goodlike.plan.chaining;
+package eu.goodlike.plan.chaining;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;

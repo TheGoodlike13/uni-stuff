@@ -1,14 +1,14 @@
-package com.goodlike.plan;
+package eu.goodlike.plan;
 
-import com.goodlike.chaining.ChainingType;
-import com.goodlike.inputparser.InputData;
-import com.goodlike.inputparser.quality.Quality;
-import com.goodlike.interpreter.Function;
-import com.goodlike.interpreter.Rule;
-import com.goodlike.interpreter.RuleData;
-import com.goodlike.interpreter.plan.PlanFinder;
-import com.goodlike.plan.chaining.*;
-import com.goodlike.utils.permutations.Permutations;
+import eu.goodlike.chaining.ChainingType;
+import eu.goodlike.inputparser.InputData;
+import eu.goodlike.inputparser.quality.Quality;
+import eu.goodlike.interpreter.Function;
+import eu.goodlike.interpreter.Rule;
+import eu.goodlike.interpreter.RuleData;
+import eu.goodlike.interpreter.plan.PlanFinder;
+import eu.goodlike.plan.chaining.*;
+import eu.goodlike.utils.permutations.Permutations;
 
 import java.util.*;
 import java.util.stream.Collectors;

@@ -1,5 +1,5 @@
 
-package com.goodlike.plan.chaining;
+package eu.goodlike.plan.chaining;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -31,14 +31,14 @@ public interface ChainingService {
      * @param rules - rules used by chaining
      * @param assertions - facts we already have
      * @return
-     *     returns com.goodlike.plan.chaining.ChainingResult
+     *     returns eu.goodlike.plan.chaining.ChainingResult
      */
     @WebMethod(action = "clientQuery")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "clientQuery", targetNamespace = "http://chaining.mif.vu.lt/", className = "com.goodlike.plan.chaining.ClientQuery")
-    @ResponseWrapper(localName = "clientQueryResponse", targetNamespace = "http://chaining.mif.vu.lt/", className = "com.goodlike.plan.chaining.ClientQueryResponse")
+    @RequestWrapper(localName = "clientQuery", targetNamespace = "http://chaining.mif.vu.lt/", className = "eu.goodlike.plan.chaining.ClientQuery")
+    @ResponseWrapper(localName = "clientQueryResponse", targetNamespace = "http://chaining.mif.vu.lt/", className = "eu.goodlike.plan.chaining.ClientQueryResponse")
     @Action(input = "clientQuery", output = "http://chaining.mif.vu.lt/ChainingService/clientQueryResponse")
-    public ChainingResult clientQuery(
+    ChainingResult clientQuery(
         @WebParam(name = "mode", targetNamespace = "")
         ChainingMode mode,
         @WebParam(name = "rules", targetNamespace = "")

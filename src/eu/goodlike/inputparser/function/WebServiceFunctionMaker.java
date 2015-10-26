@@ -1,15 +1,15 @@
-package com.goodlike.inputparser.function;
+package eu.goodlike.inputparser.function;
 
-import com.goodlike.config.Config;
-import com.goodlike.inputparser.SOAP.SOAPMessager;
-import com.goodlike.inputparser.SOAP.WSRequest;
-import com.goodlike.inputparser.SOAP.WSResponse;
-import com.goodlike.inputparser.externalclassloader.ExternalClassLoader;
-import com.goodlike.inputparser.externalclassloader.ExternalClassLoaderFactory;
-import com.goodlike.inputparser.wsdl.WSDLParser;
-import com.goodlike.inputparser.wsdl.WSDLParserFactory;
-import com.goodlike.interpreter.Function;
-import com.goodlike.utils.ClassUtils;
+import eu.goodlike.config.Config;
+import eu.goodlike.inputparser.SOAP.SOAPMessager;
+import eu.goodlike.inputparser.SOAP.WSRequest;
+import eu.goodlike.inputparser.SOAP.WSResponse;
+import eu.goodlike.inputparser.externalclassloader.ExternalClassLoader;
+import eu.goodlike.inputparser.externalclassloader.ExternalClassLoaderFactory;
+import eu.goodlike.inputparser.wsdl.WSDLParser;
+import eu.goodlike.inputparser.wsdl.WSDLParserFactory;
+import eu.goodlike.interpreter.Function;
+import eu.goodlike.utils.ClassUtils;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;

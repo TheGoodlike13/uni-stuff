@@ -1,4 +1,4 @@
-package com.goodlike.plan;
+package eu.goodlike.plan;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.goodlike.inputparser;
+package eu.goodlike.inputparser;
 
 /**
  * Initializes the parser

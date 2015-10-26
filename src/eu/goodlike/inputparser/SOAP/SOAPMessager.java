@@ -1,6 +1,6 @@
-package com.goodlike.inputparser.SOAP;
+package eu.goodlike.inputparser.SOAP;
 
-import com.goodlike.interpreter.Function;
+import eu.goodlike.interpreter.Function;
 
 import javax.xml.namespace.QName;
 import javax.xml.soap.*;
@@ -18,7 +18,7 @@ import java.io.StringWriter;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static com.goodlike.inputparser.wsdl.Constants.*;
+import static eu.goodlike.inputparser.wsdl.Constants.*;
 
 /**
  * Function, which uses web service methods to send requests and retrieve responses

@@ -1,10 +1,10 @@
-package com.goodlike.chaining;
+package eu.goodlike.chaining;
 
 public interface Chainer {
 
-    public String path();
+    String path();
 
     @SuppressWarnings("unused")
-    public boolean success();
+    boolean success();
 
 }

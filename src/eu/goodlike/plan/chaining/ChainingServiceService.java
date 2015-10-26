@@ -1,5 +1,5 @@
 
-package com.goodlike.plan.chaining;
+package eu.goodlike.plan.chaining;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.*;

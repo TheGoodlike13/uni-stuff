@@ -1,4 +1,4 @@
-package com.goodlike.inputparser.quality;
+package eu.goodlike.inputparser.quality;
 
 /**
  * Quality modes:
