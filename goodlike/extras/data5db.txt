@@ -1,7 +1,7 @@
 Rules
-Z F B  -c ConcatTimes ConcatTimesBuild ConcatTimesStream
-F D    -c ConcatTwice ConcatTwiceBuild
-D A C  -c Concat ConcatBuild
+Z F B  -c    R1P1-ConcatTimes    R1P2-ConcatTimesBuild    R1P3-ConcatTimesStream
+F C D  -c    R2P1-Concat         R2P2-ConcatBuild
+D A    -c    R3P1-ConcatTwice    R3P2-ConcatTwiceBuild
 
 Facts
 A B C
@@ -13,5 +13,6 @@ Method
 BACKWARD
 
 Qualities
-qualityLevel MULTI MIN 0.2 1000
-timeToComplete ADD MAX 40 0.01
+probability  MULTI  MIN  0.2  2000
+time         ADD    MAX  40   10
+cost         ADD    MAX  30   50

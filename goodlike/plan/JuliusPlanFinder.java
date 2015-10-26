@@ -59,7 +59,7 @@ public class JuliusPlanFinder implements PlanFinder {
             }
 
             if (best.isEmpty()) {
-                System.out.println("First sufficiently good chain found.");
+                System.out.println("First sufficient chain found.");
                 System.out.println();
                 best = permutation;
                 highestQuality = weightedQuality(qualities, qualityLevels);
@@ -67,7 +67,7 @@ public class JuliusPlanFinder implements PlanFinder {
                 continue;
             }
 
-            System.out.println("New sufficiently good chain found.");
+            System.out.println("New sufficient chain found.");
             System.out.println();
             double newQuality = weightedQuality(qualities, qualityLevels);
             System.out.println(String.format("Weighted value: %.2f", newQuality));
@@ -79,7 +79,8 @@ public class JuliusPlanFinder implements PlanFinder {
             }
 
             System.out.println(String.format("%.2f < %.2f, chain is better than current best, updating...", highestQuality, newQuality));
-            System.out.println();            best = permutation;
+            System.out.println();
+            best = permutation;
             highestQuality = newQuality;
         }
 

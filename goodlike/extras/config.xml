@@ -185,7 +185,7 @@
             <response>services.geoIPWrapper</response>
             <service-name>GeoIPService</service-name>
         </method>
-		<method id="ConcatTimes">
+		<method id="R1P1-ConcatTimes">
             <name>concatTimes</name>
             <port>StringService</port>
             <request>services.concatTimesWrapper</request>
@@ -199,28 +199,28 @@
             <response>services.concatTimesWrapper</response>
             <service-name>StringService</service-name>
         </method>
-        <method id="ConcatTimesBuild">
+        <method id="R1P2-ConcatTimesBuild">
             <name>concatTimesBuild</name>
             <port>StringService</port>
             <request>services.concatTimesWrapper</request>
             <response>services.concatTimesWrapper</response>
             <service-name>StringService</service-name>
         </method>
-        <method id="ConcatTimesStream">
+        <method id="R1P3-ConcatTimesStream">
             <name>concatTimesStream</name>
             <port>StringService</port>
             <request>services.concatTimesWrapper</request>
             <response>services.concatTimesWrapper</response>
             <service-name>StringService</service-name>
         </method>
-		<method id="ConcatTwice">
+		<method id="R3P1-ConcatTwice">
             <name>concatTwice</name>
             <port>StringService</port>
             <request>services.concatTwiceWrapper</request>
             <response>services.concatTwiceWrapper</response>
             <service-name>StringService</service-name>
         </method>
-        <method id="ConcatTwiceBuild">
+        <method id="R3P2-ConcatTwiceBuild">
             <name>concatTwiceBuild</name>
             <port>StringService</port>
             <request>services.concatTwiceWrapper</request>
@@ -234,14 +234,14 @@
             <response>services.concatWrapper</response>
             <service-name>StringService</service-name>
         </method>
-        <method id="ConcatBuild">
+        <method id="R2P2-ConcatBuild">
             <name>concatBuild</name>
             <port>StringService</port>
             <request>services.concatWrapper</request>
             <response>services.concatWrapper</response>
             <service-name>StringService</service-name>
         </method>
-		<method id="Concat">
+		<method id="R2P1-Concat">
             <name>concat</name>
             <port>StringService</port>
             <request>services.concatWrapper</request>
@@ -285,7 +285,8 @@
         </directory>
     </directories>
     <qualities>
-        <quality>qualityLevel</quality>
-        <quality>timeToComplete</quality>
+        <quality id="probability">qualityLevel</quality>
+        <quality id="time">timeToComplete</quality>
+        <quality id="cost">priceToComplete</quality>
     </qualities>
 </database>
